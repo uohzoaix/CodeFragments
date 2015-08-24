@@ -2,11 +2,11 @@
  * Created by uohzoaix on 15/8/22.
  */
 public class StringToXMLString {
-    private static final char[] hexchars = { '0', '1', '2', '3', '4', '5',
+    private static final char[] hexchars = {'0', '1', '2', '3', '4', '5',
             '6', '7', '8', '9', 'A', 'B',
-            'C', 'D', 'E', 'F' };
+            'C', 'D', 'E', 'F'};
+
     /**
-     *
      * @param s
      * @return
      */
@@ -25,8 +25,8 @@ public class StringToXMLString {
                 sb.append("%25");
             } else if (ch < 0x20) {
                 sb.append("%");
-                sb.append(hexchars[ch/16]);
-                sb.append(hexchars[ch%16]);
+                sb.append(hexchars[ch / 16]);
+                sb.append(hexchars[ch % 16]);
             } else {
                 sb.append(ch);
             }
@@ -46,18 +46,17 @@ public class StringToXMLString {
     }
 
     /**
-     *
      * @param s
      * @return
      */
     static String fromXMLString(String s) {
         StringBuilder sb = new StringBuilder();
-        for (int idx = 0; idx < s.length();) {
+        for (int idx = 0; idx < s.length(); ) {
             char ch = s.charAt(idx++);
             if (ch == '%') {
                 char ch1 = s.charAt(idx++);
                 char ch2 = s.charAt(idx++);
-                char res = (char)(h2c(ch1)*16 + h2c(ch2));
+                char res = (char) (h2c(ch1) * 16 + h2c(ch2));
                 sb.append(res);
             } else {
                 sb.append(ch);

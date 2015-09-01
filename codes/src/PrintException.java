@@ -4,6 +4,11 @@ import java.io.*;
  * Created by Administrator on 2015/8/24.
  */
 public class PrintException {
+    /**
+     * 获取异常信息，不打印在终端
+     * @param exception
+     * @return
+     */
     public static String getExceptionMessage(Throwable exception) {
         StringWriter out = new StringWriter();
         exception.printStackTrace(new PrintWriter(out));
